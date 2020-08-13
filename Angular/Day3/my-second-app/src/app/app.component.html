@@ -1,0 +1,16 @@
+<!-- hidden is an HTML attribute -->
+<!-- Non-Directive base solution -->
+<!-- <app-header #headerComponent></app-header>
+  //attribute binding
+<app-page1 [hidden]="headerComponent.pageRequested!==1"></app-page1>
+<app-page2 [hidden]="headerComponent.pageRequested!==2"></app-page2>
+<app-page3 [hidden]="headerComponent.pageRequested!==3"></app-page3>
+<app-footer></app-footer> -->
+<!-- Angular Directives - Structural Directive -->
+<!-- Componet(element) Directives -->
+<!-- Directive Way of Solution -->
+<app-header #headerComponent></app-header>
+<app-page1 *ngIf="headerComponent.pageRequested===1"></app-page1>
+<app-page2 *ngIf="headerComponent.pageRequested===2"></app-page2>
+<app-page3 *ngIf="headerComponent.pageRequested===3"></app-page3>
+<app-footer></app-footer>
