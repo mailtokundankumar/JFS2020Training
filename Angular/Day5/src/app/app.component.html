@@ -1,0 +1,25 @@
+<!-- hidden is an HTML attribute -->
+<!-- Non-Directive base solution -->
+<!-- <app-header #headerComponent></app-header>
+  //attribute binding
+<app-page1 [hidden]="headerComponent.pageRequested!==1"></app-page1>
+<app-page2 [hidden]="headerComponent.pageRequested!==2"></app-page2>
+<app-page3 [hidden]="headerComponent.pageRequested!==3"></app-page3>
+<app-footer></app-footer> -->
+<!-- Angular Directives - Structural Directive -->
+<!-- Componet(element) Directives -->
+<!-- Directive Way of Solution -->
+<!-- <app-header #headerComponent (pageChangedEvent)="incrementHitCounter($event)"></app-header>
+<app-page1 *ngIf="headerComponent.pageRequested===1"></app-page1>
+<app-page2 #page2 *ngIf="headerComponent.pageRequested===2"></app-page2>
+<app-page3 *ngIf="headerComponent.pageRequested===3"></app-page3>
+<button (click)="updateLastAccessedDetail()"  >lastAccessed</button>
+<app-footer #foot [lastAccessed] = "startTime" ></app-footer> -->
+<!-- footerNote="(C) Sabari Balaji 2020" -->
+
+<app-header #headerComponent (pageChangedEvent)="page2.incrementHitCounter($event)"></app-header>
+<app-page1 [hidden]="headerComponent.pageRequested!==1"></app-page1>
+<app-page2 #page2 [hidden]="headerComponent.pageRequested!==2"></app-page2>
+<app-page3 [hidden]="headerComponent.pageRequested!==3"></app-page3>
+<button (click)="updateLastAccessedDetail()"  >lastAccessed</button>
+<app-footer #foot [lastAccessed] = "startTime" ></app-footer>
