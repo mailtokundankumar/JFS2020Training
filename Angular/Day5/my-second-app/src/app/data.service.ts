@@ -1,10 +1,6 @@
-import { dataServiceFactory } from './instance.factory';
 import { Injectable } from '@angular/core';
 import { Book } from './Book';
-@Injectable({
-  providedIn:'root',
-  useFactory:dataServiceFactory
-})
+
 export class DataService{
 
   public books: Array<Book>;
