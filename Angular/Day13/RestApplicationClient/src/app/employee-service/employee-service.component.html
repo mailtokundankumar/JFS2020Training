@@ -1,0 +1,33 @@
+
+<h1>Employee Details</h1>
+<div class="row">
+  <div class="col-6">
+    <table class="table">
+      <thead>
+
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <!-- <th>Salary</th>
+          <th>Grade</th> -->
+        </tr>
+        <div *ngIf="loadingData">{{message}}</div>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees ">
+          <!-- repeat the tr for each room -->
+          <td>{{employee.employeeId}}</td>
+          <td>{{employee.employeeName}}</td>
+          <td>
+            <!-- (click)="setEmployee(employee.employeeId)" -->
+            <button type="button" (click)="setEmployee(employee.employeeId)" class="btn btn-primary" >view</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-6">
+
+    <app-employee-details  *ngIf="selectedEmployee" [employee]="selectedEmployee"></app-employee-details>
+  </div>
+</div>

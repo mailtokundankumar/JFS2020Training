@@ -1,0 +1,64 @@
+<!-- <br>
+UserName: <input type="text" *ngIf="userName" [formControl] = "userName">
+{{userName.value}}
+
+[(ngModel)] = "userName" String -->
+<!-- <h1 appEmoji>Welcome to User Form - Entry page</h1> -->
+UserName Is: {{userName}} <br><br>
+<form novalidate [formGroup]="user" (ngSubmit)="onDataSubmit()" >
+   <label *ngIf="user.controls?.name">
+    <span>Full name</span>
+    <input
+      type="text"
+      name="name"
+      placeholder="Your full name"
+      class="form-control"
+      formControlName="name"
+      [(ngModel)]="userName">
+      <div class="alert alert-danger" *ngIf="getClassNameErrorCondition()" >Please Enter Ur Name</div>
+      <div class="alert alert-danger" *ngIf="user.controls.name?.hasError('minlength') && user.controls.name?.touched">Please Enter Minimum 5 Charactered Name</div>
+      <div class="alert alert-danger" *ngIf="user.get('name').hasError('salutationError') && user.controls.name?.touched">Please Insert Salutation</div>
+    </label>
+  <div formGroupName="account">
+    <label>
+      <span>Email address</span>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email address" class="form-control"
+        formControlName="email"
+        >
+    </label>
+    <div class="alert alert-danger"
+    *ngIf="user.get('account').get('email').hasError('required')
+  && user.get('account').get('email').touched || user.get('account').get('email').hasError('email')" >
+     Please Enter Ur EmailID</div>
+    <label>
+      <span>Confirm Email address</span>
+      <input
+        type="email"
+        name="confirm"
+        placeholder="Confirm your email address"
+        class="form-control"
+        formControlName="confirm">
+    </label>
+    <div class="alert alert-danger"
+    *ngIf="user.get('account').get('confirm').hasError('required')
+     && user.get('account').get('confirm').touched" >
+     Please Enter Ur Confirmed EmailID</div>
+
+
+
+  </div>
+  <button type="submit" [disabled] = "user.invalid"  class="btn btn-success">Sign up</button>
+</form>
+<br>
+
+<!-- //Safe Navigation Operator -->
+<!-- {{user.controls?.name?.errors | json}} -->
+<!-- <h1>Form Details</h1> -->
+<!-- {{user.controls.name.errors | json}} -->
+{{user.get('name').errors | json}}
+<!-- {{user.controls.account.confirm.errors | json}} -->
+
+<!-- {{user.controls.account.controls.email}} -->
