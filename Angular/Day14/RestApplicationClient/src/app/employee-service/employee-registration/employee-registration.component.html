@@ -1,0 +1,50 @@
+<h1>Employee Registration Details:</h1>
+<form (ngSubmit)="onSubmit()" >
+  <label>
+    <span>Employee ID:</span>
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter the Emp ID"
+      class="form-control"
+      [(ngModel)]="employee.employeeId"
+    />
+  </label>
+  <br />
+
+  <label>
+    <span>Employee Name</span>
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter Full name"
+      class="form-control"
+      [(ngModel)]="employee.employeeName"
+    />
+  </label>
+  <br />
+
+  <label>
+    <span>Employee Salary</span>
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter  Salary"
+      class="form-control"
+      [(ngModel)]="employee.employeeSalary"
+    />
+  </label>
+  <br />
+
+  <label>
+    <span>Employee Grade</span>
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter  Grade"
+      class="form-control"
+      [(ngModel)]="employee.employeeGrade"
+    />
+  </label><br>
+  <button type="submit"  class="btn btn-success">Sign up</button>
+</form>
